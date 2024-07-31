@@ -8,10 +8,12 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket = "pixelpredict"
-    key    = "terraform/state/main.tfstate"
-    region = "us-west-1"
+  cloud {
+    organization = "PulsePixel"
+    workspaces {
+      project = "pixel_predict"
+      name    = "pixel_predict_default"
+    }
   }
 }
 
